@@ -1,3 +1,7 @@
 torch
 transformers
 numpy
+datasets
+scikit-learn
+seaborn
+matplotlib
