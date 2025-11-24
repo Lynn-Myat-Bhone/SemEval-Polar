@@ -5,3 +5,5 @@ datasets
 scikit-learn
 seaborn
 matplotlib
+fasttext-wheel
+gensim
