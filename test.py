@@ -1,12 +1,22 @@
-import pandas as pd
+import openpyxl
 
-# Load dataset
-df = pd.read_csv("Trial_Data.csv")
+# Read hashtags from a text file
+with open("hash.txt", "r", encoding="utf-8") as file:
+    text = file.read()
 
-# Keep only the desired columns
-df_reduced = df[['lang', 'id', 'text', 'polarization']]
+# Split text into individual hashtags
+hashtags = text.split()
 
-# Save to a new CSV if needed
-df_reduced.to_csv("Trail_Data.csv", index=False)
+# Create a new Excel workbook
+wb = openpyxl.Workbook()
+ws = wb.active
+ws.title = "Hashtags"
 
-print(df_reduced.head())
+# Write each hashtag into a separate row
+for i, tag in enumerate(hashtags, start=1):
+    ws.cell(row=i, column=1, value=tag)
+
+# Save the workbook
+wb.save("hashtags.xlsx")
+
+print("Excel file 'hashtags.xlsx' has been created successfully!")
